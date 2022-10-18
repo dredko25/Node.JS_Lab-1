@@ -1,0 +1,22 @@
+{
+  "name": "node.js_lab-1",
+  "version": "1.0.0",
+  "description": "Lab-1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dredko25/Node.JS_Lab-1.git"
+  },
+  "keywords": [
+    "lab"
+  ],
+  "author": "dredko25",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dredko25/Node.JS_Lab-1/issues"
+  },
+  "homepage": "https://github.com/dredko25/Node.JS_Lab-1#readme"
+}

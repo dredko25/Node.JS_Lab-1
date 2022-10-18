@@ -1,0 +1,19 @@
+name: EditorConfig
+
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: 16
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      - run: npm ci
+      - run: npm run editorconfig

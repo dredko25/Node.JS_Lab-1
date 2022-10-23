@@ -1,7 +1,6 @@
 name: EditorConfig
 
-on:
-  push
+on: push
 
 jobs:
   lint:

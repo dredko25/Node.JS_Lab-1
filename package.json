@@ -1,6 +1,9 @@
 {
   "name": "node.js_lab-1",
   "version": "1.0.0",
+  "engines": {
+    "node": ">=14.5.0"
+  },
   "description": "Lab-1",
   "type": "module",
   "main": "index.js",

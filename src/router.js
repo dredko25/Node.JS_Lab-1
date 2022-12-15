@@ -27,4 +27,8 @@ async function loadRoutesDir(dirName, base) {
 
 await loadRoutesDir('', path.sep)
 
-export { router }
+function defaultHandler(req, res, url, payload) {
+  res.json({name: 'method not implemented'})
+}
+
+export { router, defaultHandler }

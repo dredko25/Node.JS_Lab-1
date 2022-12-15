@@ -1,5 +1,5 @@
 class JSON_METHODS {
-    parse(data, fallback={}) {
+    parse(data, fallback = {}) {
         try {
             return JSON.parse(data)
         }
@@ -8,7 +8,8 @@ class JSON_METHODS {
             return fallback;
         }
     }
-    stringify(data, fallback={}) {
+
+    stringify(data, fallback = {}) {
         try {
             return JSON.stringify(data)
         }

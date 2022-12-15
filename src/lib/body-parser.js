@@ -1,7 +1,9 @@
+import JSON_METHODS from "../utils/json-methods.js";
 
 const PROCESSED_CONTENT_TYPES = {
     'text/html': (text) => text,
     'text/plain': (text) => text,
+    'application/json': (json) => JSON_METHODS.parse(json, {}),
     'application/x-www-form-urlencoded': (data) => {
         return Object.fromEntries(new URLSearchParams(data))
     }

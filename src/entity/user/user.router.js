@@ -1,4 +1,4 @@
-import { findById, createUser } from './user_controller.js'
+import { findById, createUser } from './user.controller.js'
 
 class UserRouter {
   GET(...args) {

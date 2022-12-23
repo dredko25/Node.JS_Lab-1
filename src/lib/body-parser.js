@@ -9,20 +9,33 @@ const PROCESSED_CONTENT_TYPES = {
   },
 }
 
+const buildChank = async (req) => {
+  return new Promise((resolve, reject) => {
+      let rawRequest = [];
+      req.on("data", (chunk) => {
+          rawRequest.push(Buffer.from(chunk))
+      })
+          .on("end", () => {
+              rawRequest = Buffer.concat(rawRequest).toString()
+              resolve(rawRequest);
+          })
+          .on("error", (err) => {
+              console.log("Error: ", err.message);
+              reject(err)
+          });
+  });
+};
+
 async function bodyParser(req) {
   if (!req.headers['content-type']) {
     return {}
   }
 
-  let rawRequest = ''
-  for await (const chunk of req) {
-    rawRequest += chunk
-  }
 
   const contentType = req.headers['content-type'].split(';')[0]
   const payload = PROCESSED_CONTENT_TYPES[contentType]?.(rawRequest) ?? {}
 
-  return { payload, rawRequest }
+  return { payload}
 }
 
-export { bodyParser }
+export { bodyParser, buildChank };

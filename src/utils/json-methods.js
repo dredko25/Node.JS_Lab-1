@@ -18,4 +18,4 @@ class JSON_METHODS {
   }
 }
 
-export default new JSON_METHODS
+export default new JSON_METHODS()

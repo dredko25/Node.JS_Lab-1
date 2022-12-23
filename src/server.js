@@ -5,7 +5,7 @@ import { bodyParser, buildChank } from './lib/body-parser.js'
 
 const server = http.createServer(async (req, res) => {
   const url = new URL(req.url || '/', `https://${req.headers.host}`)
-  const routeModule = router[url.pathname].default ?? {}
+  const routeModule = router[url.pathname]?.default ?? {}
   const handler = routeModule[req?.method] ?? defaultHandler
 
   const rawRequest = await buildChank(req)

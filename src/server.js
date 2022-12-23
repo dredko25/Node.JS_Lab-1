@@ -1,20 +1,22 @@
 import * as http from 'node:http'
-import { router } from './router.js'
+import { defaultHandler, router } from './router.js'
 import jsonRes from './middleware/jsonRes.js'
 import { bodyParser, buildChank } from './lib/body-parser.js'
 
 const server = http.createServer(async (req, res) => {
   const url = new URL(req.url || '/', `https://${req.headers.host}`)
   const routeModule = router[url.pathname].default ?? {}
-  const handler = routeModule[req?.method]
+  const handler = routeModule[req?.method] ?? defaultHandler
 
-  const rawRequest = await buildChank(req);
-  const { payload} = await bodyParser(req)
+  const rawRequest = await buildChank(req)
+  const { payload } = await bodyParser(req, rawRequest)
 
+  res.json = jsonRes
   try {
-    handler(req, Object.assign(res, jsonRes), url, payload, rawRequest)
+    handler(req, res, url, payload, rawRequest)
   } catch (error) {
     res.statusCode = 500
+    console.error('Error 500:', error)
     res.end(error)
   }
 })

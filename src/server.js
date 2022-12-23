@@ -8,13 +8,15 @@ const server = http.createServer(async (req, res) => {
   const routeModule = router[url.pathname].default ?? {}
   const handler = routeModule[req?.method]
 
-  const rawRequest = await buildChank(req);
-  const { payload} = await bodyParser(req)
+  const rawRequest = await buildChank(req)
+  const { payload } = await bodyParser(req, rawRequest)
 
+  res.json = jsonRes
   try {
-    handler(req, Object.assign(res, jsonRes), url, payload, rawRequest)
+    handler(req, res, url, payload, rawRequest)
   } catch (error) {
     res.statusCode = 500
+    console.error('Error 500:', error)
     res.end(error)
   }
 })

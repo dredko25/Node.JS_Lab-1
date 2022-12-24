@@ -1,0 +1,50 @@
+{
+  "name": "node.js_lab-1",
+  "version": "1.0.0",
+  "engines": {
+    "node": ">=14.5.0"
+  },
+  "description": "Lab-1",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "lint": "eslint --ignore-path .gitignore .",
+    "lint:fix": "npm run lint -- --fix",
+    "format": "prettier --ignore-path .gitignore --check .",
+    "format:fix": "prettier --ignore-path .gitignore --write .",
+    "prepare": "husky install",
+    "editorconfig": "editorconfig-checker"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dredko25/Node.JS_Lab-1.git"
+  },
+  "keywords": [
+    "lab"
+  ],
+  "author": "dredko25",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dredko25/Node.JS_Lab-1/issues"
+  },
+  "homepage": "https://github.com/dredko25/Node.JS_Lab-1#readme",
+  "devDependencies": {
+    "editorconfig-checker": "^4.0.2",
+    "eslint": "^8.25.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.3.0",
+    "eslint-plugin-promise": "^6.1.0",
+    "eslint-plugin-sonarjs": "^0.16.0",
+    "husky": "^8.0.1",
+    "nodemon": "^2.0.20",
+    "prettier": "2.7.1"
+  },
+  "dependencies": {
+    "string.prototype.replaceall": "^1.0.7"
+  }
+}

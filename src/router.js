@@ -1,6 +1,9 @@
 import { readdir } from 'node:fs/promises'
 import * as path from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'url'
+import replaceAllInserter from 'string.prototype.replaceall'
+
+replaceAllInserter.shim()
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
